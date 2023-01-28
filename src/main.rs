@@ -38,7 +38,7 @@ fn change_dir() -> Result<(), ()> {
 
 fn backup_original() -> Result<(), ()> {
     let spinner = loaders_utils::get_spinner("Copy original");
-    let result = fs::rename("video0", "video0.original");
+    let result = fs::copy("video0", "video0.original");
     match result {
         Ok(_) => {
             spinner.finish_with_message("Original copied");
